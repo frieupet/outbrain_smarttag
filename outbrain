@@ -1,0 +1,17 @@
+ATInternet.Outbrain = ATInternet.Scroll || {};
+ATInternet.Tracker.Plugins.Outbrain = function(parent) {
+	parent.Outbrain = {};
+	parent.Outbrain.init = function() {
+$('body').delegate('.ob-dynamic-rec-link', 'click', function(){
+    return parent.click.send({
+        elem: this,
+        name: encodeURIComponent($(this).children('.ob-rec-text').attr('title')),
+        chapter1: 'outbrain_exit',
+        level2: '',
+        type: 'exit'
+    });
+});
+	}
+
+};
+ATInternet.Tracker.addPlugin('Outbrain');
